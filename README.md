@@ -83,7 +83,13 @@ grep "Skill" ~/agent-os/profiles/default/agents/implementer.md
 # Should return NO results
 ```
 
-#### Step 4: Run the test
+#### Step 4: Install Agent OS in the test project
+
+```bash
+~/agent-os/scripts/project-install.sh --standards-as-claude-code-skills true --use-claude-code-subagents true
+```
+
+#### Step 5: Run the test
 
 ```bash
 claude
@@ -91,7 +97,7 @@ claude
 # Specify: agent-os/specs/2025-01-01-test-feature
 ```
 
-#### Step 5: Verify result
+#### Step 6: Verify result
 
 ```bash
 grep "@skill-verified" src/calculator.js
@@ -128,12 +134,9 @@ grep "Skill" ~/agent-os/profiles/default/agents/implementer.md
 # Should show: tools: Write, Read, Bash, WebFetch, Playwright, Skill
 ```
 
-#### Step 4: Reinstall Agent OS in the test project
+#### Step 4: Install Agent OS in the test project
 
 ```bash
-rm -rf agent-os .claude/agents .claude/commands
-rm -f src/calculator.js
-
 ~/agent-os/scripts/project-install.sh --standards-as-claude-code-skills true --use-claude-code-subagents true
 ```
 

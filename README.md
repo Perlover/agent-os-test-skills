@@ -2,6 +2,16 @@
 
 This is a test project to verify whether Claude Code subagents properly use Skills when the `Skill` tool is added to their tools list.
 
+## Author's Note
+
+By chance, I discovered that a well-known tool called [Agent OS](https://github.com/buildermethods/agent-os) for Claude Code does not work as intended. Recently, I noticed that it generates code and often ignores the Skills I wrote for my project. Not long ago, I started wondering: *what if subagents do not use Skills by default?*
+
+I began researching this topic, and after a thorough investigation, I found that subagents work with Skills only under certain conditions. Specifically, when the YAML frontmatter of a subagent lists in the `tools:` section either an asterisk (`*`) or explicitly includes `Skill` among the listed tools. In that case, the subagent receives a special structure loaded by the main process, containing headers that specify the skill name and its description.
+
+Once this structure is provided, the subagent decides on its own whether it needs to use the Skill. If it decides it does, the user will be prompted for permission to read the Skill file. And if the code is run with the `--dangerously-skip-permissions` option, then no prompt will appear — the Skill will be used automatically.
+
+To back up my claims, I performed specific testing. I wrote code to verify the behavior I am describing. For this purpose, I created this project and conducted independent testing, confirming my conclusions. **You are welcome to verify them yourself if you wish.**
+
 ## Background
 
 In the original Agent OS, subagents have a limited set of tools defined in their frontmatter (e.g., `tools: Write, Read, Bash, WebFetch, Playwright`). Based on analysis of Claude Code behavior, **subagents only receive skill headers when the `Skill` tool is explicitly listed in their tools**. Without it, subagents cannot access any skills.

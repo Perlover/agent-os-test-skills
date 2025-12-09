@@ -1,6 +1,6 @@
 ---
 name: JavaScript Documentation Standard
-description: PROACTIVE - Use when writing JavaScript/TypeScript code. Requires JSDoc comments with @skill-verified tag for all functions. Essential for code documentation and IDE support.
+description: MANDATORY for ALL JavaScript code! PROACTIVE - Use when writing JavaScript/TypeScript code. Requires JSDoc comments with @skill-verified tag for all functions. Essential for code documentation and IDE support.
 ---
 
 # JavaScript Documentation Standard

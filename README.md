@@ -79,7 +79,7 @@ When prompted, select option **1** to perform a fresh installation.
 #### Step 3: Verify original Agent OS has no Skill tool
 
 ```bash
-grep "Skill" ~/.agent-os/profiles/default/agents/implementer.md
+grep "Skill" ~/agent-os/profiles/default/agents/implementer.md
 # Should return NO results
 ```
 

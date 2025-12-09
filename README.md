@@ -86,7 +86,6 @@ grep "Skill" ~/agent-os/profiles/default/agents/implementer.md
 #### Step 4: Run the test
 
 ```bash
-cd agent-os-test-skills
 claude
 # Run: /implement-tasks
 # Specify: agent-os/specs/2025-01-01-test-feature
